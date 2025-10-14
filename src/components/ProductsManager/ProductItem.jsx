@@ -50,7 +50,7 @@ export default function ProductItem({ product, onQuantityChange }) {
               : "text-black hover:text-red-500"
           }`}
         >
-          –
+          
         </button>
         <span className="font-medium w-6 text-center">{qty}</span>
         <button
