@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaArrowLeft } from "react-icons/fa";
+// The FaArrowLeft import has been removed as it is no longer needed.
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from 'react-i18next';
 
@@ -21,10 +21,9 @@ export default function OrdersDelivered({ orders }) {
   return (
     <div className="flex flex-col bg-white">
       {/* Top Bar */}
-      <div className="flex items-center justify-between px-4 py-3 border-b">
-        <FaArrowLeft className="w-5 h-5 text-black" />
-        <h1 className="text-lg font-semibold">{t('delivered')}</h1>
-        <span className="w-5 h-5" />
+      <div className="flex items-center justify-center px-4 py-3 border-b">
+        {/* The arrow icon has been removed and the title is now centered. */}
+        <h1 className="text-lg font-semibold">{t('Delivered')}</h1>
       </div>
 
       {/* Orders List */}
@@ -85,14 +84,14 @@ export default function OrdersDelivered({ orders }) {
                             <p className="font-semibold">
                               {it.type === 'rental' ? it.machinery?.name : it.product?.name}
                             </p>
-                          <p className="text-xs text-gray-500">
+                            <p className="text-xs text-gray-500">
                               {it.type === 'rental' ? `${t('duration')}: ${it.duration} ${it.pricingType}` : `${t('quantityShort')}: ${it.quantity}`}
                             </p>
                             {typeof it.price === 'number' && (
                               <p className="text-xs">{t('price')}: ₹{Number(it.price).toFixed(2)}</p>
                             )}
                             <span className={`text-xs px-2 py-1 rounded-full ${it.type === 'rental' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'}`}>
-                            {it.type === 'rental' ? t('rental') : t('product')}
+                              {it.type === 'rental' ? t('rental') : t('product')}
                             </span>
                           </div>
                         </div>
@@ -108,9 +107,9 @@ export default function OrdersDelivered({ orders }) {
                         <div>
                           <p className="font-semibold">{t('farmerLabel')}</p>
                           <p>Name: {order.items?.[0]?.product?.farmer?.name || order.items?.[0]?.machinery?.farmer?.name || '-'}</p>
-                          {(order.items?.[0]?.product?.farmer?.phoneNumber || order.items?.[0]?.machinery?.farmer?.phoneNumber) !== undefined && 
+                          {(order.items?.[0]?.product?.farmer?.phoneNumber || order.items?.[0]?.machinery?.farmer?.phoneNumber) !== undefined &&
                             <p>Phone: {order.items[0].product?.farmer?.phoneNumber || order.items[0].machinery?.farmer?.phoneNumber}</p>}
-                          {(order.items?.[0]?.product?.farmer?.address || order.items?.[0]?.machinery?.farmer?.address) && 
+                          {(order.items?.[0]?.product?.farmer?.address || order.items?.[0]?.machinery?.farmer?.address) &&
                             <p>Address: {order.items[0].product?.farmer?.address || order.items[0].machinery?.farmer?.address}</p>}
                         </div>
                       </div>
@@ -139,3 +138,4 @@ export default function OrdersDelivered({ orders }) {
     </div>
   );
 }
+

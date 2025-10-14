@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaArrowLeft } from "react-icons/fa";
+// FaArrowLeft import is removed as the icon is no longer used.
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from 'react-i18next';
 
@@ -17,10 +17,9 @@ export default function OrdersReceived({ orders, updateOrderStatus }) {
   return (
     <div className="flex flex-col bg-white border-b">
       {/* Top Bar */}
-      <div className="flex items-center justify-between px-4 py-3 border-b">
-        <FaArrowLeft className="w-5 h-5 text-black" />
-        <h1 className="text-lg font-semibold">{t('ordersManager')}</h1>
-        <span className="w-5 h-5" />
+      <div className="flex items-center justify-center px-4 py-3 border-b">
+        {/* The arrow icon has been removed and the title is now centered. */}
+        <h1 className="text-lg font-semibold">{t('Order Received')}</h1>
       </div>
 
       {/* Orders List */}
@@ -34,8 +33,8 @@ export default function OrdersReceived({ orders, updateOrderStatus }) {
               layout
               onClick={() => toggleExpand(order.id)}
               className={`px-4 py-3 rounded-2xl shadow-md cursor-pointer 
-                ${order.status === "In Progress" 
-                  ? "border-yellow-500 bg-yellow-50" 
+                ${order.status === "In Progress"
+                  ? "border-yellow-500 bg-yellow-50"
                   : "border-gray-200 bg-white"}`}
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
@@ -101,14 +100,14 @@ export default function OrdersReceived({ orders, updateOrderStatus }) {
                         {order.buyer?.phoneNumber !== undefined && <p>Phone: {order.buyer.phoneNumber}</p>}
                         {order.buyer?.address && <p>Address: {order.buyer.address}</p>}
                       </div>
-                        <div>
-                          <p className="font-semibold">{t('farmerLabel')}</p>
-                          <p>Name: {order.items?.[0]?.product?.farmer?.name || order.items?.[0]?.machinery?.farmer?.name || '-'}</p>
-                          {(order.items?.[0]?.product?.farmer?.phoneNumber || order.items?.[0]?.machinery?.farmer?.phoneNumber) !== undefined && 
-                            <p>Phone: {order.items[0].product?.farmer?.phoneNumber || order.items[0].machinery?.farmer?.phoneNumber}</p>}
-                          {(order.items?.[0]?.product?.farmer?.address || order.items?.[0]?.machinery?.farmer?.address) && 
-                            <p>Address: {order.items[0].product?.farmer?.address || order.items[0].machinery?.farmer?.address}</p>}
-                        </div>
+                      <div>
+                        <p className="font-semibold">{t('farmerLabel')}</p>
+                        <p>Name: {order.items?.[0]?.product?.farmer?.name || order.items?.[0]?.machinery?.farmer?.name || '-'}</p>
+                        {(order.items?.[0]?.product?.farmer?.phoneNumber || order.items?.[0]?.machinery?.farmer?.phoneNumber) !== undefined &&
+                          <p>Phone: {order.items[0].product?.farmer?.phoneNumber || order.items[0].machinery?.farmer?.phoneNumber}</p>}
+                        {(order.items?.[0]?.product?.farmer?.address || order.items?.[0]?.machinery?.farmer?.address) &&
+                          <p>Address: {order.items[0].product?.farmer?.address || order.items[0].machinery?.farmer?.address}</p>}
+                      </div>
                     </div>
 
                     {/* Buttons */}

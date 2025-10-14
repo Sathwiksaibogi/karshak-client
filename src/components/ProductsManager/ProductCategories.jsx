@@ -92,7 +92,7 @@ const ProductCategories = () => {
                     </h3>
                   </div>
                 </div>
-                <button
+                {/* <button
                   onClick={(e) => handleCopyLink(e, product.id)}
                   className="p-2 rounded-full hover:bg-gray-200 transition-colors self-center"
                   aria-label="Copy product link"
@@ -102,7 +102,7 @@ const ProductCategories = () => {
                   ) : (
                     <FaCopy className="text-gray-500" />
                   )}
-                </button>
+                </button> */}
               </Link>
             ))}
         </div>

@@ -80,6 +80,8 @@ export default function MyOrders() {
     return inId || inItems || inStatus;
   });
 
+  let orderCount=0;
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {loading && (
@@ -89,7 +91,7 @@ export default function MyOrders() {
       )}
       <header className="flex items-center justify-between px-4 py-3 border-b">
         <span className="w-5 h-5" />
-        <h1 className="text-lg font-semibold">{t('myOrders')}</h1>
+        <h1 className="text-lg font-semibold">{t('My Orders')}</h1>
         <span className="w-5 h-5" />
       </header>
 
@@ -124,7 +126,7 @@ export default function MyOrders() {
                 >
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="font-semibold">Order no: {order.id}</p>
+                      <p className="font-semibold">Order no: {++orderCount}</p>
                       <p className="text-xs text-gray-500">{order.time}</p>
                     </div>
                     <div className="flex items-center gap-3">
