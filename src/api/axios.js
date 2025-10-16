@@ -22,7 +22,7 @@ import axios from 'axios';
 // In local development, it will be 'http://localhost:3000/api'.
 // In production on Vercel, it will be 'https://your-backend.vercel.app/api'.
 const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-// const VITE_API_BASE_URL ='http://localhost:3000/api';
+//const VITE_API_BASE_URL ='http://localhost:3000/api';
 
 const apiClient = axios.create({
   baseURL: VITE_API_BASE_URL, // Use the dynamic variable here
